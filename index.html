@@ -1,9 +1,164 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fourth &amp; Fate</title>
-<style>html{background:#0b1a2e}body{margin:0 auto;max-width:720px;padding:48px 16px;color:#e8edf3;background:#0b1a2e;font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}a{color:#e8b03a}h1{margin:0 0 8px}</style>
-</head><body>
-<h1>Fourth &amp; Fate</h1>
-<p>An American football roguelite for Android, by AfterPrime.</p>
-<p><a href="privacy.html">Privacy policy</a> &middot; Support: <a href="mailto:AfterPrimeDesigns@gmail.com">AfterPrimeDesigns@gmail.com</a></p>
-</body></html>
+<meta name="description" content="An American football roguelite for Android. Draft a team, call the plays or let your coach do it, and chase a title.">
+<meta property="og:title" content="Fourth &amp; Fate">
+<meta property="og:description" content="An American football roguelite for Android. Draft a team, call the plays or let your coach do it, and chase a title.">
+<meta property="og:image" content="https://mikectolbert.github.io/fourth-and-fate-site/img/icon-512.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b1a2e">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b1a2e; --panel: #12243b; --panel-2: #172c47; --rule: #23344a;
+    --fg: #e8edf3; --dim: #a6b3c2; --gold: #f2c443; --sky: #4cc3f5;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body { margin: 0; color: var(--fg); background: var(--bg);
+         font: 17px/1.6 "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  h1, h2, .kicker, .cta { font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+         text-transform: uppercase; letter-spacing: .01em; }
+  a { color: var(--gold); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  header.hero { text-align: center; padding: 56px 0 40px;
+    background: radial-gradient(ellipse at 50% 0%, #1d3a5f 0%, var(--bg) 70%); }
+  .hero img { width: 180px; height: 180px; border-radius: 36px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+  .hero h1 { font-size: clamp(2.6rem, 9vw, 4rem); line-height: 1; margin: 24px 0 8px; }
+  .tagline { font-size: 1.2rem; color: var(--dim); margin: 0 auto 24px; max-width: 34em; }
+  .tagline b { color: var(--fg); font-weight: 500; }
+  .cta { display: inline-block; font-size: 1.3rem; font-weight: 700; padding: 12px 28px;
+    color: var(--bg); background: var(--gold); text-decoration: none;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, calc(100% - 14px) 100%, 0 100%); }
+  .cta.soon { background: transparent; color: var(--gold); outline: 2px solid var(--gold);
+    outline-offset: -2px; }
+  .facts { color: var(--dim); font-size: .95rem; margin-top: 16px; }
+
+  section { padding: 40px 0; border-top: 1px solid var(--rule); }
+  .kicker { color: var(--gold); font-weight: 700; font-size: 1rem; margin: 0 0 4px; }
+  h2 { font-size: clamp(1.8rem, 6vw, 2.4rem); line-height: 1.05; margin: 0 0 16px; }
+
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { background: var(--panel); padding: 20px; border-top: 3px solid var(--sky); }
+  .card h3 { font: 700 1.35rem/1.1 "Barlow Condensed", sans-serif; text-transform: uppercase;
+    margin: 0 0 8px; }
+  .card p { margin: 0; color: var(--dim); }
+
+  .shots { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 8px; }
+  .shots img { flex: 0 0 auto; width: min(260px, 70vw); height: auto; aspect-ratio: 1 / 2;
+    border: 1px solid var(--rule); scroll-snap-align: start; }
+  .note { color: var(--dim); font-size: .9rem; margin: 8px 0 0; }
+
+  ul.list { margin: 0; padding-left: 1.2em; }
+  ul.list li { margin: 4px 0; }
+  ul.list li::marker { color: var(--gold); }
+
+  footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--dim);
+    font-size: .95rem; }
+  footer p { margin: 6px 0; }
+  footer .links a { margin-right: 18px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="img/icon.png" alt="Fourth &amp; Fate icon">
+    <h1>Fourth &amp; Fate</h1>
+    <p class="tagline"><b>Build a football team. Then watch every snap play out.</b>
+      An American football roguelite for one hand and a portrait screen.</p>
+    <span class="cta soon">Coming soon to Google Play</span>
+    <p class="facts">Android &middot; One purchase &middot; No ads &middot; No in-app purchases &middot; Plays offline</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <p class="kicker">The game</p>
+      <h2>Thirteen weeks. Two losses. No second chances.</h2>
+      <p>Draft your players, install your playbooks, hire your staff and take one of nine
+        franchises through a thirteen-week season. Two losses and the season is over.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>You call it, or your coach does</h3>
+          <p>Before every snap you get a hand of plays from your playbook, or of defensive calls
+            when they have the ball. Pick one, flip it, or let the clock run and your coach makes
+            the call. Turn on AI Coach and just watch.</p>
+        </div>
+        <div class="card">
+          <h3>Every snap is played, not rolled</h3>
+          <p>Routes, blocks, pass rush moves, the quarterback's reads, the tackle: each play is
+            simulated on the field in front of you. When a drive stalls, the play log shows you why.</p>
+        </div>
+        <div class="card">
+          <h3>Losing is part of it</h3>
+          <p>A lost season is over. Big seasons unlock new coaches, plays and options for the runs
+            that follow, and a new Daily Season every day gives everyone the same start.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Screens</p>
+      <h2>Shape it every week</h2>
+      <div class="shots">
+        <img src="img/season.jpg" alt="The season page: week-by-week schedule with opponents' helmets and losses left" loading="lazy">
+        <img src="img/practice.jpg" alt="Practice week: choose training, a playbook clinic or recovery" loading="lazy">
+        <img src="img/reward.jpg" alt="Reward pick after a win: gate share or practice allocation" loading="lazy">
+      </div>
+      <p class="note">In-development screens. Art and layout may change before release.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <p class="kicker">Build it your way</p>
+          <ul class="list">
+            <li>A three-round draft to start every run</li>
+            <li>70 plays and 21 defensive calls</li>
+            <li>Practice weeks, film study, staff hires, free agents and game plans</li>
+            <li>Player traits, synergies and injuries that force hard lineup calls</li>
+            <li>Opponents that learn: repeat a play and they start reading it</li>
+          </ul>
+        </div>
+        <div>
+          <p class="kicker">Made for phones</p>
+          <ul class="list">
+            <li>Portrait, one-handed, readable at phone size</li>
+            <li>Playback speed from 1x to 4x</li>
+            <li>Text size, reduced motion and separate volume controls</li>
+            <li>No account and no internet connection needed</li>
+            <li>No ads, no in-app purchases, no energy timers, no data collection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="links"><a href="privacy.html">Privacy policy</a>
+      <a href="mailto:AfterPrimeDesigns@gmail.com">Support: AfterPrimeDesigns@gmail.com</a></p>
+    <p>&copy; 2026 AfterPrime.</p>
+    <p>Fourth &amp; Fate is an independent game and is not affiliated with or endorsed by any
+      professional or collegiate football league, team or player.</p>
+  </div>
+</footer>
+
+</body>
+</html>
